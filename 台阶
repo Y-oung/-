@@ -1,0 +1,19 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+int Solve(int n)
+{
+	if(n==1)
+		return 1;
+	if(n==2)
+		return 2;
+	return Solve(n-1)+Solve(n-2);
+}
+ 
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int num=Solve(4);
+	cout<<num<<endl;
+	system("pause");
+	return 0;
+}
