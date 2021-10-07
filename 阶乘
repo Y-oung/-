@@ -1,37 +1,30 @@
-递推：
 #include<stdio.h>
-int main()
-{
-	int n,y=1,i;
-	scanf("%d",&n);
-	if(n==0||n==1) y=1;
-	else for( i=1;i<=n;i++)
-	{
-		y=i*y;
-	}
-	printf("%d!=%d",n,y);
-	return 0;
- }
-
-
-
-递归：
-#include<stdio.h>
-int ff(int n)
-{
-	long f;
-	if(n<0) printf("n<0,input error");
-	else if(n==0||n==1) f=1;
-	else f=ff(n-1)*n;
-	return (f);
- } 
- int main()
+ //递归求阶乘 
+ int sum(int n)
  {
+ 	if (n==1||n==0)
+ 	return 1;
+ 	else
+ 	return n*sum(n-1);
+ } 
+ //时间复杂度：从代码可以看出当数据规模为n时做n次运算，因此时间复杂度为O(n)
+ //空间复杂度：运算无申请创建额外空间，空间复杂度为O(1) 
+ 
+ //递推求阶乘
+ int jiecheng (int n){
+ 	int result=1;
+ 	for(int i=2;i<n;++i){
+ 		result=result*i;
+ 	}
+ 	return result;
+ } 
+ //时间复杂度：从代码可以看出当数据规模为n时做n次循环，因此时间复杂度为O(n)
+ //空间复杂度：运算无申请创建额外空间，空间复杂度为O(1) 
+ int main(){
  	int n;
- 	long y;
- 	printf("请输入一个数:\n");
+ 	sum(n);
+ 	printf("请输入n的值：");
  	scanf("%d",&n);
- 	y=ff(n);
- 	printf("%d!=%ld",n,y);
+ 	printf("结果为：%d\n",sum(n));
  	return 0;
-}
+ }
