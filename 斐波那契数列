@@ -1,0 +1,50 @@
+递归：
+#include<stdio.h>
+int fac(int n)
+{
+    if(n==0||n==1)
+        return n;
+    return fac(n-1)+fac(n-2);
+}
+int main()
+{
+    int i,x;
+    scanf("%d",&x);
+    for(i=0;i<=x;i++)
+    {
+        if((i!=0&&i%5==0)||(i==x))
+            printf("%d\n",fac(i));
+        else
+            printf("%d,",fac(i));
+    }
+    return 0;
+}
+
+递推:
+#include<stdio.h>
+int f(int n)
+{
+    int f0=0,f1=1,f,i;
+    if(n<2)
+        return n;
+        else
+    for(i=1;i<n;i++)
+    {
+        f=f0+f1;
+        f0=f1;
+        f1=f;
+    }
+    return f;
+}
+int main()
+{
+    int n,y,i;
+    scanf("%d",&n);
+    for(i=0;i<=n;i++)
+    {
+        if((i!=0)&&((i+1)%5==0)||(i==n))
+            printf("%d\n",f(i));
+        else
+            printf("%d,",f(i));
+    }
+}
