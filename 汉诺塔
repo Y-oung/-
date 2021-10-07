@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+int hanoi(int n, char x, char y, char z);
+int num = 0;
+int main()
+{
+	int n;
+	printf("请输入汉诺塔的层数：");
+	cin >> n;
+	hanoi(n, 'A', 'B', 'C');
+	printf("共移动了 %d 次。\n", num);
+	return 0;
+}
+int hanoi(int n, char x, char y, char z)
+{
+	if (n == 0)
+	{
+	}
+	else
+	{
+		hanoi(n - 1, x, z, y);
+		printf("第%d步：  将 %d 号圆盘从 %c 移至 %c \n",num+1, n, x, y); 
+		num++;
+		hanoi(n - 1, z, y, x); 						
+	}
+	return 0;
+}
